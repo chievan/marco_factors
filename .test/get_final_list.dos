@@ -1,4 +1,0 @@
-
-t = select security_id, name, code, publisher from loadTable("dfs://HFNF.index_info", "data") where name like "%私募%" and name like "%指数%" and (name like "%国泰%" or name like "%海通%");
-print(t);
-

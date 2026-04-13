@@ -1,5 +1,0 @@
-
-ids = [49361940, 40998561, 43310702, 40553563, 44238744, 48585505, 49069575, 48333548, 42883138, 48408839, 43494799];
-t = select date, security_id, close from loadTable("dfs://HFNF.index_daily_quote", "data") where security_id in ids;
-saveText(t, "data/private_fund_indices.csv");
-

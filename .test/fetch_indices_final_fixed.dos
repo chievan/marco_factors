@@ -1,5 +1,0 @@
-
-target_ids = [48333548, 43494799, 42883138, 48408839, 43310702, 49069575, 44238744, 49520806];
-quotes = select date, security_id, close from loadTable("dfs://HFNF.index_daily_quote", "data") where security_id in target_ids and date >= 2018.01.01;
-quotes
-

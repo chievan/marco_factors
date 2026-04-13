@@ -1,5 +1,0 @@
-
-target_ids = [48333548, 43494799, 42883138, 48408839, 49520806];
-quotes = select * from loadTable("dfs://HFNF.index_daily_quote", "data") where security_id in target_ids;
-print(quotes);
-

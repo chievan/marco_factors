@@ -1,15 +1,27 @@
 import dolphindb as ddb
 import pandas as pd
 import os
+import json
 
 def fetch_data():
     s = ddb.session()
-    # 尝试连接生产与测试节点
-    hosts = [("106.54.219.69", 8848), ("172.30.44.32", 8848)]
+    # 加载外部配置以保护凭证
+    config_path = "db_config.json"
+    if not os.path.exists(config_path):
+        raise FileNotFoundError(f"Missing {config_path}. Please create this file with your DDB credentials.")
+    
+    with open(config_path, "r", encoding="utf-8") as f:
+        db_config = json.load(f)
+        
+    hosts = db_config.get("hosts", [("106.54.219.69", 8848)])
+    user = db_config.get("user", "admin")
+    pwd = db_config.get("password", "123456")
+
     connected = False
-    for host, port in hosts:
+    for host_info in hosts:
+        host, port = host_info[0], host_info[1]
         try:
-            s.connect(host, port, "admin", "123456")
+            s.connect(host, port, user, pwd)
             print(f"✅ Connected to DolphinDB: {host}")
             connected = True
             break

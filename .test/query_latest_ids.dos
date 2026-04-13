@@ -1,3 +1,0 @@
-// 查找最新的 H11008 和 H11006 ID
-res = select security_id, fund_id, fund_code, fund_name, max(date) as last_date from loadTable("dfs://wind", "index_quote") where fund_code in ["H11008", "H11006", "H11001", "H11077"] group by security_id, fund_id, fund_code, fund_name;
-print(res);

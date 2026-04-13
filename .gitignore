@@ -28,3 +28,8 @@ venv.bak/
 
 # Caches
 .pytest_cache/
+
+# Sensitive & Local Auth
+db_config.json
+.agent/
+.test/

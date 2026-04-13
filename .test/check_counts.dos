@@ -1,4 +1,0 @@
-
-t = select count(*) from loadTable("dfs://HFNF.index_daily_quote", "data") where security_id = 48333548;
-print(t);
-
