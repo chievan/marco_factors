@@ -1,0 +1,4 @@
+
+t = select security_id, name, code from loadTable("dfs://HFNF.index_info", "data") where code like "GTHT%";
+print(t);
+

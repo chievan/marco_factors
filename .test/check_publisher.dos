@@ -1,0 +1,4 @@
+
+t = select id, security_id, name from loadTable("dfs://HFNF.index_info", "data") where publisher like "%国泰%";
+print(t);
+

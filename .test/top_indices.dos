@@ -1,0 +1,4 @@
+
+t = select security_id, count(*) as cnt, max(date) as last_date from loadTable("dfs://HFNF.index_daily_quote", "data") group by security_id order by last_date desc;
+print(top 20 t);
+

@@ -1,0 +1,4 @@
+
+t = select * from loadTable("dfs://HFNF.common_security", "data") where name like "%国泰海通证券私募策略指数%";
+print(t);
+

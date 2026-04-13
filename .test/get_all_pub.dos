@@ -1,0 +1,4 @@
+
+t = select * from loadTable("dfs://HFNF.index_info", "data") where publisher like "%国泰海通证券%";
+print(t);
+

@@ -1,0 +1,4 @@
+
+t = select distinct product_name, product_code from loadTable("dfs://HAZQ.private_index", "data") where product_code like "%GTHT%";
+print(t);
+

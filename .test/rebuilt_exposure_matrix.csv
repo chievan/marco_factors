@@ -1,0 +1,12 @@
+,Growth,Inflation,Rates,Credit,FX,Liquidity
+Bond_Pure,0.0,0.0,-0.41,-0.28,0.0,0.0
+Bond_Enhanced,0.11,0.0,-0.35,-0.13,0.0,0.0
+Convertible_Bal,0.45,-0.12,-0.3,-0.4,-0.05,0.25
+Convertible_Equity,0.62,-0.22,-0.25,-0.32,-0.15,0.35
+Stock_Subjective,1.31,0.12,0.28,0.0,-0.3,0.62
+Stock_Quant_Alpha,0.89,0.0,0.2,0.0,0.08,1.12
+Stock_300E,1.21,0.05,0.25,0.0,0.04,0.89
+Stock_500E,0.81,0.06,0.2,0.0,0.03,1.01
+Stock_1000E,0.72,0.0,0.15,0.0,0.01,1.89
+CTA_Strategy,0.31,0.39,0.15,0.0,-0.31,0.58
+Market_Neutral,0.0,0.0,0.0,0.0,0.0,1.23

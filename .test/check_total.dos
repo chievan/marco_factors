@@ -1,0 +1,4 @@
+
+count = exec count(*) from loadTable("dfs://HFNF.index_daily_quote", "data");
+print("Total rows in index_daily_quote: " + string(count));
+

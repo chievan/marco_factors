@@ -1,0 +1,4 @@
+
+t = select count(*) from loadTable("dfs://HFNF.index_daily_quote", "data") where security_id in [48333548, 43494799, 43310702, 48408839, 48585505, 49069575];
+print(t);
+

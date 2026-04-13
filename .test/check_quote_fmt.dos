@@ -1,0 +1,4 @@
+
+t = select top 10 * from loadTable("dfs://HFNF.index_daily_quote", "data");
+print(t);
+

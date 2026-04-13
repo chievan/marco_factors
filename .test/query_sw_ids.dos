@@ -1,0 +1,3 @@
+// 查找 801811 和 801813 的基本行情
+res = select security_id, fund_id, fund_code, fund_name, max(date) as last_date from loadTable("dfs://wind", "index_quote") where fund_code in ["801811", "801813"];
+print(res);

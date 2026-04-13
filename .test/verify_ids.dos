@@ -1,0 +1,4 @@
+// 查询特定 ID 的指数信息
+target_ids = [49862409, 40525479];
+ids_info = select security_id, code, name, short_name from loadTable("dfs://HFNF.index_info", "data") where security_id in target_ids;
+print(ids_info);

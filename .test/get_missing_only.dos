@@ -1,0 +1,6 @@
+
+ids = [40998561, 49361940];
+t = select date, security_id, close from loadTable("dfs://HFNF.index_daily_quote", "data") where security_id in ids;
+print(t.count());
+saveText(t, ".test/missing_data.csv");
+
