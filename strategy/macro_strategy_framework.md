@@ -17,13 +17,25 @@
 
 系统通过增长 (Growth) 与通胀 (Inflation) 两个维度的实时信号，将历史环境划分为传统的“宏观四象限”。这为战术层面的资产倾斜提供了决策背景。
 
-### 历史象限走势图
+### 2.1 状态识别核心算法 (Classification Algorithm)
+
+为了滤除短期噪音，系统并不使用资产的当月截面数据，而是对高频指标执行以下步骤：
+1. **获取动能差分**：记录 `Growth` 与 `Inflation` 两大高频指标序列近 60 个交易日的边际变化差分 $(\Delta_{60})$。
+2. **滚动归一化 (Z-Score)**：将计算出来的差分值，除以其过去 252 个交易日（1年）的滚动标准差，得到剥离量纲的 Z-Score。
+3. **二元切分法界定象限**：系统每天在收盘后，仅凭该日 Z-Score 的绝对正负号进行刚性切割划分：
+
+| 宏观状态 (Regime) | 划定条件 (Z-Score 阈值) | 经济含义 |
+| :--- | :--- | :--- |
+| **复苏 (Recovery)** | `Growth > 0` 且 `Inflation <= 0` | 经济边际回暖，但通胀尚未抬头（货币环境依然支撑）。 |
+| **过热 (Overheat)** | `Growth > 0` 且 `Inflation > 0` | 经济动能强劲，拉动通胀同步上行。 |
+| **滞胀 (Stagflation)**| `Growth <= 0` 且 `Inflation > 0` | 经济动能衰减转负，但物价存在刚性或供给侧摩擦。 |
+| **衰退 (Recession)** | `Growth <= 0` 且 `Inflation <= 0` | 增长与通胀双引擎彻底熄火。 |
+
+### 2.2 历史象限走势图 (Regime Timeline Visualization)
 ![Macro Regimes](outputs/plots/macro_regime_timeline.png)
 
-- **复苏 (Recovery)**：黑色实线上行，蓝色虚线下行。
-- **过热 (Overheat)**：双线上行。
-- **滞胀 (Stagflation)**：黑色下行，蓝色上行。
-- **衰退 (Recession)**：双线下行。
+*图注说明：在最初的 300 多个交易日内出现水平的 0 点直线，系滚动计算标准差时的无数据预热期 (Warm-up Period)，属正常数学效应。*
+
 
 ---
 
